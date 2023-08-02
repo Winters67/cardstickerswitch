@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Marvel Versus",
+        "stickerSize": 176,
+        "stickerSpecial": 40,
+        "cardSize" : 50,
+        "pageCount": 48,
+        "image": "./assets/img/marvel_versus.webp",
+        "Année": "2021",
+        "Langue":"Francais"
+    }
+   
+]
