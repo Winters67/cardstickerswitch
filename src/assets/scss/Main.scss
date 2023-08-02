@@ -5,9 +5,13 @@
 
 //components
 
-// @import "../../components/Footer/Footer.scss";
-
+@import "../../components/Header/Header.scss";
+@import "../../components/Footer/Footer.scss";
 
 //pages
 
-// @import "../../views/Home/Home.scss";
+@import "../../views/CollectionPage/CollectionPage.scss";
+@import "../../views/AuthPage/AuthPage.scss";
+@import "../../views/Home/Home.scss";
+@import "../../views/ProfilePage/ProfilePage.scss";
+@import "../../views/TradeCardPage/TradeCardPage.scss";

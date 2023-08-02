@@ -1,6 +1,6 @@
-@font-face {
-  font-family: "Medium";
-  src: local("Montserrat-Medium"), url("../../assets/font/Montserrat-Medium.ttf") format("truetype");
-}
 /*|---------------| App Color Schema|---------------*/
-/*|---------------|MIXINS|---------------*//*# sourceMappingURL=CollectionPage.css.map */
+/*|---------------|MIXINS|---------------*/
+.imgContainer {
+  height: 50px;
+  width: 50px;
+}/*# sourceMappingURL=CollectionPage.css.map */

@@ -4,9 +4,22 @@
         "name": "Marvel Versus",
         "stickerSize": 176,
         "stickerSpecial": 40,
+        "LetterStickerSpecial": "H",
         "cardSize" : 50,
         "pageCount": 48,
-        "image": "./assets/img/marvel_versus.webp",
+        "image": "/assets/img/marvel_versus.webp",
+        "Année": "2021",
+        "Langue":"Francais"
+    },
+    {
+        "id": 2,
+        "name": "Harry Potter 'Le manuel du sorcier'",
+        "stickerSize": 180,
+        "LetterStickerSpecial": "Y",
+        "stickerSpecial": 12,
+        "cardSize" : "",
+        "pageCount": 32,
+        "image": "/assets/img/harry_potter_le_manuel_sorcier.webp",
         "Année": "2021",
         "Langue":"Francais"
     }

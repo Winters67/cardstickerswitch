@@ -1,59 +1,66 @@
 import { useState, useEffect } from "react";
 import collectionsData from "../../data/collection.json";
+import { useParams } from "react-router-dom";
 
 const CollectionPage = () => {
-  const [collections, setCollections] = useState(collectionsData);
+  const { id } = useParams();
+  const [collection, setCollection] = useState();
 
-  const generateStickersForCollections = () => {
-    let newCollections = collections.map((collection) => {
+  const generateStickersForCollection = () => {
+    let collectionData = collectionsData.find(
+      (col) => col.id.toString() === id
+    );
+
+    if (collectionData) {
       let stickers = [];
 
-      for (let i = 1; i <= collection.stickerSize; i++) {
+      for (let i = 1; i <= collectionData.stickerSize; i++) {
         stickers.push({
           id: i,
-          name: "Sticker " + i,
+          name: " " + i,
           special: false,
         });
       }
 
-      for (let i = 1; i <= collection.stickerSpecial; i++) {
+      for (let i = 1; i <= collectionData.stickerSpecial; i++) {
         stickers.push({
-          id: "h" + i,
-          name: "Sticker H" + i,
+          id: collectionData.LetterStickerSpecial + i,
+          name: " " + collectionData.LetterStickerSpecial + i,
           special: true,
         });
       }
 
-      return { ...collection, stickers };
-    });
+      collectionData = { ...collectionData, stickers };
+    }
 
-    setCollections(newCollections);
+    setCollection(collectionData);
   };
 
-  useEffect(generateStickersForCollections, []);
-  console.log(collections);
+  useEffect(generateStickersForCollection, [id]);
+
   return (
     <div>
-      {collections &&
-        collections.map((collection) => (
-          <div key={collection.id}>
-            <h1>
-              {collection.name} ({collection.Année}, {collection.Langue})
-            </h1>
+      {collection && (
+        <div>
+          <h1>
+            {collection.name} ({collection.Année}, {collection.Langue})
+          </h1>
+          <div className="imgContainer">
             <img src={collection.image} alt={collection.name} />
-            <ul>
-              {collection.stickers &&
-                collection.stickers.map((sticker) => (
-                  <li key={sticker.id}>
-                    <input type="checkbox" id={`sticker-${sticker.id}`} />
-                    <label htmlFor={`sticker-${sticker.id}`}>
-                      {sticker.name} {sticker.special ? "(Spécial)" : ""}
-                    </label>
-                  </li>
-                ))}
-            </ul>
           </div>
-        ))}
+          <ul>
+            {collection.stickers &&
+              collection.stickers.map((sticker) => (
+                <li key={sticker.id}>
+                  <input type="checkbox" id={`sticker-${sticker.id}`} />
+                  <label htmlFor={`sticker-${sticker.id}`}>
+                    {sticker.name} {sticker.special ? "" : ""}
+                  </label>
+                </li>
+              ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
